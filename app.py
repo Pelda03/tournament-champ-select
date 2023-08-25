@@ -177,8 +177,6 @@ def choices(choice: str):
         return True
     return False
 
-
-
 while True:
     champ_count: int = 20
     chosen_champs = champ_select(champ_count)
