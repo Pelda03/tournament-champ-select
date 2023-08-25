@@ -1,4 +1,5 @@
 import random
+import tkinter as tk
 
 champs = [
     "Aatrox",
@@ -173,18 +174,42 @@ def champ_select(chosen_champs):
 
 def choices(choice: str):
     if choice.lower() == "no":
-        print("OK!")
+        result_label.config(text="OK!")
         return True
     return False
 
-while True:
-    champ_count: int = 20
+def select_champions():
+    champ_count = 20
     chosen_champs = champ_select(champ_count)
+    
+    champions_text = "\n".join(chosen_champs)
+    champions_label.config(text=champions_text)
 
-    print("Chosen champions:")
-    for champ in chosen_champs:
-        print(champ)
-
-    choice = input("Do you wish to reroll? (yes/no)")
+def reroll():
+    choice = choice_entry.get()
     if choices(choice):
-        break    
+        root.destroy()
+    else:
+        select_champions()
+
+root = tk.Tk()
+root.title("League of Legends Champ Select")
+
+champions_label = tk.Label(root, text="", justify="left")
+champions_label.pack()
+
+choice_label = tk.Label(root, text="Do you wish to reroll? (yes/no)")
+choice_label.pack()
+
+choice_entry = tk.Entry(root)
+choice_entry.pack()
+
+reroll_button = tk.Button(root, text="Reroll", command=reroll)
+reroll_button.pack()
+
+result_label = tk.Label(root, text="")
+result_label.pack()
+
+select_champions()  # Na začátku hned zobrazíme první výběr šampionů
+
+root.mainloop()
