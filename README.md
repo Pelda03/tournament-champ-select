@@ -7,4 +7,4 @@ A program with tkinter GUI made for unofficial ARAM tournaments that selects 20 
 
 This program also has a functionality of updating tiers for each champion directly via the GUI in root window.
 
-The second (app.py) has no tier functionality, but does the job of selecting 20 champs.
+The second (app.py) has no tier functionality, and has an integrated champion list directly inside one file, but does the job of selecting 20 champs.
